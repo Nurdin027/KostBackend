@@ -1,9 +1,16 @@
 # Kost Backend
 
-<details>
-<summary>
-Database configuration & migration
-</summary> 
+## Config virtual environment and install packages
+
+### create virtualenv
+
+```shell
+virtuealenv venv
+source venv/bin/activate
+pip install -r requirements.txt
+```
+
+## Database configuration & migration
 
 ### create .env
 
@@ -25,6 +32,15 @@ flask db migrate -m "Initial migration"
 flask db upgrade
 ```
 
-</details>
+### Running Project
 
+```shell
+flask run
+```
 
+## URL:
+
+- debug: http://localhost:5000/
+- documentation: http://localhost:5000/swagger/
+
+Create admin at /api/auth/create-admin for login
