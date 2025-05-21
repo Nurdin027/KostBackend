@@ -1,4 +1,4 @@
-from flask import Flask, jsonify
+from flask import Flask
 from flask_jwt_extended import JWTManager
 from flask_migrate import Migrate
 from flask_restful import Api
@@ -31,6 +31,16 @@ swagger_ui_blueprint = get_swaggerui_blueprint(
     config={
         'app_name': "Kost Backend",
         "persistAuthorization": True,
+        "servers": [
+            {
+                "url": "http://localhost:5000",
+                "description": "Development server"
+            },
+            {
+                "url": cfg("PROD_DOMAIN"),
+                "description": "Production server"
+            }
+        ]
     }
 )
 app.register_blueprint(swagger_ui_blueprint, url_prefix=SWAGGER_URL)
